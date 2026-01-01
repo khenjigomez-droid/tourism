@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourispot Mabini - Paradise Awaits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 20px rgba(255, 107, 107, 0.5); }
+            to { box-shadow: 0 0 40px rgba(255, 107, 107, 0.8); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-20 backdrop-filter backdrop-blur-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full flex items-center justify-center">
+                        <span class="text-xl">🌺</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Tourispot</h1>
+                        <p class="text-xs text-gray-300">Mabini Paradise</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-pink-400 transition-colors duration-300">Home</a>
+                    <a href="#discover" class="hover:text-cyan-400 transition-colors duration-300">Discover</a>
+                    <a href="#experiences" class="hover:text-green-400 transition-colors duration-300">Experiences</a>
+                    <a href="#info" class="hover:text-yellow-400 transition-colors duration-300">Travel Info</a>
+                </div>
+                
+                <button class="bg-gradient-to-r from-pink-500 to-cyan-500 px-6 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <div class="bounce-in mb-8">
+                <div class="inline-block p-4 glass-card rounded-full mb-6">
+                    <svg class="w-16 h-16" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="40" fill="url(#gradient1)"/>
+                        <path d="M25 60 Q35 45 45 60 Q55 45 65 60 Q75 45 85 60" stroke="white" stroke-width="3"/>
+                        <circle cx="30" cy="35" r="3" fill="#FFD700"/>
+                        <circle cx="70" cy="35" r="3" fill="#FFD700"/>
+                        <defs>
+                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF6B6B"/>
+                                <stop offset="100%" style="stop-color:#4ECDC4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                MABINI
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
+                    PARADISE
+                </span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+                Dive into crystal waters, explore vibrant coral reefs, and discover the hidden gems of Batangas' premier diving destination
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="scrollToSection('discover')" class="pulse-glow bg-gradient-to-r from-pink-500 to-red-500 px-8 py-4 rounded-full font-bold text-lg hover:scale-110 transition-all duration-300">
+                    🤿 Start Exploring
+                </button>
+                <button onclick="scrollToSection('experiences')" class="glass-card px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                    🏝️ View Experiences
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 animate-bounce">
+            <div class="w-6 h-6 bg-yellow-400 rounded-full opacity-70"></div>
+        </div>
+        <div class="absolute top-40 right-20 animate-pulse">
+            <div class="w-4 h-4 bg-pink-400 rounded-full opacity-60"></div>
+        </div>
+        <div class="absolute bottom-32 left-20 animate-bounce" style="animation-delay: 1s;">
+            <div class="w-5 h-5 bg-cyan-400 rounded-full opacity-50"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center slide-up">
+                    <div class="text-5xl mb-4">🏖️</div>
+                    <div class="text-4xl font-bold text-pink-400 mb-2">20+</div>
+                    <div class="text-gray-400">Pristine Beaches</div>
+                </div>
+                <div class="text-center slide-up" style="animation-delay: 0.2s;">
+                    <div class="text-5xl mb-4">🐠</div>
+                    <div class="text-4xl font-bold text-cyan-400 mb-2">500+</div>
+                    <div class="text-gray-400">Marine Species</div>
+                </div>
+                <div class="text-center slide-up" style="animation-delay: 0.4s;">
+                    <div class="text-5xl mb-4">🏨</div>
+                    <div class="text-4xl font-bold text-green-400 mb-2">30+</div>
+                    <div class="text-gray-400">Dive Resorts</div>
+                </div>
+                <div class="text-center slide-up" style="animation-delay: 0.6s;">
+                    <div class="text-5xl mb-4">⭐</div>
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">4.9</div>
+                    <div class="text-gray-400">Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover Section -->
+    <section id="discover" class="py-24 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-black mb-6">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                        DISCOVER
+                    </span>
+                    <span class="block text-white">MABINI'S WONDERS</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    From world-class diving spots to secluded island getaways, every corner of Mabini tells a story of natural beauty
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Anilao -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-purple-600 p-8 hover:scale-105 transition-all duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">🤿</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Anilao Diving Capital</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">
+                            World-renowned macro diving paradise with incredible biodiversity. Home to rare nudibranchs, frogfish, and vibrant coral gardens.
+                        </p>
+                        <div class="flex items-center text-cyan-300">
+                            <span class="mr-2">🌊</span>
+                            <span class="font-semibold">25+ dive sites</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sombrero Island -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-500 to-teal-600 p-8 hover:scale-105 transition-all duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">🏝️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Sombrero Island</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">
+                            Picture-perfect hat-shaped island with powdery white sand beaches and crystal-clear turquoise waters perfect for swimming.
+                        </p>
+                        <div class="flex items-center text-yellow-300">
+                            <span class="mr-2">☀️</span>
+                            <span class="font-semibold">Day trip paradise</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maricaban Island -->
+                <div class="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500 to-orange-500 p-8 hover:scale-105 transition-all duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">🏕️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Maricaban Island</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">
+                            Secluded camping destination with historic lighthouse, pristine beaches, and stunning sunset views over Batangas Bay.
+                        </p>
+                        <div class="flex items-center text-pink-300">
+                            <span class="mr-2">🌅</span>
+                            <span class="font-semibold">Camping & hiking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                    EPIC EXPERIENCES
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Create memories that last a lifetime with our curated adventures
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-6 p-6 glass-card rounded-2xl hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">🤿</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-cyan-400">Underwater Photography</h3>
+                            <p class="text-gray-300">Capture stunning macro shots of rare marine life with professional underwater photography guides.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-6 p-6 glass-card rounded-2xl hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">🚤</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-green-400">Island Hopping Adventure</h3>
+                            <p class="text-gray-300">Explore multiple pristine islands in one unforgettable day with snorkeling and beach time.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-6 p-6 glass-card rounded-2xl hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-2xl">🌅</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-pink-400">Sunset Beach Camping</h3>
+                            <p class="text-gray-300">Sleep under the stars on secluded beaches with breathtaking sunset and sunrise views.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-10 text-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        <div class="relative z-10">
+                            <div class="w-24 h-24 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <span class="text-4xl">🎯</span>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4">Ready for Adventure?</h3>
+                            <p class="text-lg mb-8 text-gray-200">
+                                Join over 10,000 travelers who've discovered Mabini's underwater paradise and pristine beaches.
+                            </p>
+                            <button onclick="showTravelInfo()" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:scale-110 transition-all duration-300">
+                                Get Travel Guide 📋
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Info Section -->
+    <section id="info" class="py-24 bg-gradient-to-r from-gray-900 to-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
+                        PLAN YOUR ESCAPE
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Mabini, Batangas is the Philippines' premier diving destination, just 2.5 hours from Manila. Experience world-class underwater adventures in this tropical paradise.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                                <span class="text-xl">📍</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-cyan-400">Location</h4>
+                                <p class="text-gray-300">Mabini, Batangas, Philippines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center">
+                                <span class="text-xl">🚗</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-green-400">Travel Time</h4>
+                                <p class="text-gray-300">2.5 hours drive from Manila</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
+                                <span class="text-xl">🌡️</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-yellow-400">Climate</h4>
+                                <p class="text-gray-300">Tropical, 26-32°C year-round</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-800 to-indigo-800 rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-300">Essential Travel Tips</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-400 pl-6">
+                            <h4 class="font-bold text-blue-400 mb-2">Best Season</h4>
+                            <p class="text-gray-300">November to May for calm seas and perfect visibility (up to 30 meters)</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-400 pl-6">
+                            <h4 class="font-bold text-green-400 mb-2">Getting There</h4>
+                            <p class="text-gray-300">Fly to NAIA Manila → Bus to Batangas → Jeepney to Anilao</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-yellow-400 pl-6">
+                            <h4 class="font-bold text-yellow-400 mb-2">What to Pack</h4>
+                            <p class="text-gray-300">Reef-safe sunscreen, underwater camera, diving certification, and adventure spirit!</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-pink-400 pl-6">
+                            <h4 class="font-bold text-pink-400 mb-2">Budget Range</h4>
+                            <p class="text-gray-300">₱2,000-8,000 per day (budget to luxury options available)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-full flex items-center justify-center mr-4">
+                        <span class="text-2xl">🌺</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">Tourispot Mabini</h3>
+                        <p class="text-gray-400">Your Gateway to Paradise</p>
+                    </div>
+                </div>
+                
+                <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+                    Discover the underwater wonders and pristine beaches of Mabini, Batangas. Where every dive tells a story and every sunset creates a memory.
+                </p>
+                
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors duration-300">Facebook</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors duration-300">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-green-400 transition-colors duration-300">YouTube</a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-300">TikTok</a>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-6">
+                    <p class="text-gray-500">&copy; 2024 Tourispot Mabini. Dive responsibly, explore sustainably. 🌊</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            const navHeight = 80;
+            const elementPosition = element.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+        
+        function showTravelInfo() {
+            alert('🏝️ MABINI TRAVEL GUIDE\n\n🚗 FROM MANILA:\n• Take SLEX to Batangas\n• Follow signs to Mabini/Anilao\n• Total travel time: 2.5 hours\n\n🏨 ACCOMMODATION:\n• Budget: ₱1,500-3,000/night\n• Mid-range: ₱3,000-6,000/night\n• Luxury: ₱6,000+/night\n\n🤿 DIVING PACKAGES:\n• Fun dives: ₱1,500-2,500 per dive\n• Full day: ₱4,000-6,000\n• Certification courses available\n\n📞 Book through local dive operators or resorts!');
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-bg');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+        
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.glass-card, .group').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983812a1b0e3a99c',t:'MTc1ODYwOTg1OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
